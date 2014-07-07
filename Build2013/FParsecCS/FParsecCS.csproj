@@ -34,32 +34,74 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Buffer.cs" />
-    <Compile Include="CaseFoldTable.cs" />
-    <Compile Include="CharSet.cs" />
-    <Compile Include="CharStream.cs" />
-    <Compile Include="CharStreamLT.cs" />
-    <Compile Include="Cloning.cs" />
-    <Compile Include="ErrorMessage.cs" />
-    <Compile Include="ErrorMessageList.cs" />
-    <Compile Include="Errors.cs" />
-    <Compile Include="FastGenericEqualityERComparer.cs" />
-    <Compile Include="HexFloat.cs" />
-    <Compile Include="IdentifierValidator.cs" />
-    <Compile Include="ManyChars.cs" />
-    <Compile Include="OperatorPrecedenceParser.cs" />
-    <Compile Include="Position.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reply.cs" />
-    <Compile Include="StringBuffer.cs" />
-    <Compile Include="Strings.cs" />
-    <Compile Include="Text.cs" />
-    <Compile Include="UnmanagedMemoryPool.cs" />
+    <Compile Include="..\..\FParsecCS\Buffer.cs">
+      <Link>Buffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\CaseFoldTable.cs">
+      <Link>CaseFoldTable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\CharSet.cs">
+      <Link>CharSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\CharStream.cs">
+      <Link>CharStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\CharStreamLT.cs">
+      <Link>CharStreamLT.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Cloning.cs">
+      <Link>Cloning.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\ErrorMessage.cs">
+      <Link>ErrorMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\ErrorMessageList.cs">
+      <Link>ErrorMessageList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Errors.cs">
+      <Link>Errors.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\FastGenericEqualityERComparer.cs">
+      <Link>FastGenericEqualityERComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\HexFloat.cs">
+      <Link>HexFloat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\IdentifierValidator.cs">
+      <Link>IdentifierValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\ManyChars.cs">
+      <Link>ManyChars.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\OperatorPrecedenceParser.cs">
+      <Link>OperatorPrecedenceParser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Position.cs">
+      <Link>Position.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Reply.cs">
+      <Link>Reply.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\StringBuffer.cs">
+      <Link>StringBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Strings.cs">
+      <Link>Strings.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\Text.cs">
+      <Link>Text.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsecCS\UnmanagedMemoryPool.cs">
+      <Link>UnmanagedMemoryPool.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
-      <HintPath>..\Lib\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\Lib\FSharp.Core.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

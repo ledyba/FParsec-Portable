@@ -52,17 +52,39 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internals.fs" />
-    <Compile Include="Range.fs" />
-    <Compile Include="Emit.fs" />
-    <Compile Include="StaticMapping.fsi" />
-    <Compile Include="StaticMapping.fs" />
-    <Compile Include="Error.fsi" />
-    <Compile Include="Error.fs" />
-    <Compile Include="Primitives.fsi" />
-    <Compile Include="Primitives.fs" />
-    <Compile Include="CharParsers.fsi" />
-    <Compile Include="CharParsers.fs" />
+    <Compile Include="..\..\FParsec\Internals.fs">
+      <Link>Internals.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Range.fs">
+      <Link>Range.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Emit.fs">
+      <Link>Emit.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Error.fsi">
+      <Link>Error.fsi</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Error.fs">
+      <Link>Error.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Primitives.fsi">
+      <Link>Primitives.fsi</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\Primitives.fs">
+      <Link>Primitives.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\StaticMapping.fsi">
+      <Link>StaticMapping.fsi</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\StaticMapping.fs">
+      <Link>StaticMapping.fs</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\CharParsers.fsi">
+      <Link>CharParsers.fsi</Link>
+    </Compile>
+    <Compile Include="..\..\FParsec\CharParsers.fs">
+      <Link>CharParsers.fs</Link>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">12</MinimumVisualStudioVersion>
