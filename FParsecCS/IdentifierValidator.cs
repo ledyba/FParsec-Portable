@@ -15,7 +15,7 @@ namespace FParsec {
 #endif
 public sealed class IdentifierValidator {
 
-    internal enum IdentifierCharFlags : byte {
+    public enum IdentifierCharFlags : byte {
         None                = 0,
 
         Continue            = 1,
@@ -54,7 +54,7 @@ public sealed class IdentifierValidator {
         AsciiCharOptions = ascii;
     }
 
-    internal IdentifierValidator(IdentifierCharFlags[] asciiCharOptions) {
+    public IdentifierValidator(IdentifierCharFlags[] asciiCharOptions) {
         Debug.Assert(asciiCharOptions.Length == 128);
         AsciiCharOptions = asciiCharOptions;
     }

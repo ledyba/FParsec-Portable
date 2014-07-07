@@ -27,7 +27,12 @@ public class ErrorMessage : IEquatable<ErrorMessage> {
     public readonly ErrorMessageType Type;
 
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-    internal string String;
+    internal string String_;
+
+    public string String
+    {
+        get { return this.String_; }
+    }
 
     internal ErrorMessage(ErrorMessageType messageType) {
         Type = messageType;
@@ -36,49 +41,49 @@ public class ErrorMessage : IEquatable<ErrorMessage> {
     public class Expected : ErrorMessage {
         public string Label { get { return String; } }
         public Expected(string labelForExpectedInput) : base(ErrorMessageType.Expected) {
-            String = labelForExpectedInput;
+            String_ = labelForExpectedInput;
         }
     }
 
     public class ExpectedString : ErrorMessage {
         public new string String { get { return String; } }
         public ExpectedString(string expectedString) : base(ErrorMessageType.ExpectedString) {
-            base.String = expectedString;
+            base.String_ = expectedString;
         }
     }
 
     public class ExpectedCaseInsensitiveString : ErrorMessage {
         public string CaseInsensitiveString { get { return String; } }
         public ExpectedCaseInsensitiveString(string expectedCaseInsensitiveString) : base(ErrorMessageType.ExpectedCaseInsensitiveString) {
-            String = expectedCaseInsensitiveString;
+            String_ = expectedCaseInsensitiveString;
         }
     }
 
     public class Unexpected : ErrorMessage {
         public string Label { get { return String; } }
         public Unexpected(string labelForUnexpectedInput) : base(ErrorMessageType.Unexpected) {
-            String = labelForUnexpectedInput;
+            String_ = labelForUnexpectedInput;
         }
     }
 
     public class UnexpectedString : ErrorMessage {
         public new string String { get { return String; } }
         public UnexpectedString(string unexpectedString) : base(ErrorMessageType.UnexpectedString) {
-            base.String = unexpectedString;
+            base.String_ = unexpectedString;
         }
     }
 
     public class UnexpectedCaseInsensitiveString : ErrorMessage {
         public string CaseInsensitiveString { get { return String; } }
         public UnexpectedCaseInsensitiveString(string unexpectedCaseInsensitiveString) : base(ErrorMessageType.UnexpectedCaseInsensitiveString) {
-            String = unexpectedCaseInsensitiveString;
+            String_ = unexpectedCaseInsensitiveString;
         }
     }
 
     public class Message : ErrorMessage {
         public new string String { get { return String; } }
         public Message(string message) : base(ErrorMessageType.Message) {
-            base.String = message;
+            base.String_ = message;
         }
     }
 
@@ -106,7 +111,7 @@ public class ErrorMessage : IEquatable<ErrorMessage> {
                              object nestedErrorUserState,
                              ErrorMessageList nestedErrorMessages) : base(ErrorMessageType.CompoundError)
         {
-            String = labelOfCompound;
+            String_ = labelOfCompound;
             NestedErrorPosition = nestedErrorPosition;
             NestedErrorUserState = nestedErrorUserState;
             NestedErrorMessages = nestedErrorMessages;

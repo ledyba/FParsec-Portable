@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 using Microsoft.FSharp.Core;
 
@@ -24,8 +25,9 @@ internal static class FastGenericEqualityERComparer {
     public static EqualityComparer<T> Create<T>() {
         var t = typeof(T);
         if (t.IsArray) return new ArrayStructuralEqualityERComparer<T>();
-        if (typeof(IStructuralEquatable).IsAssignableFrom(t)) {
-            var gct = t.IsValueType ? typeof(StructStructuralEqualityERComparer<>)
+        if (typeof(IStructuralEquatable).GetTypeInfo().IsAssignableFrom(t.GetTypeInfo())) {
+            var gct = t.GetTypeInfo().IsValueType
+                                    ? typeof(StructStructuralEqualityERComparer<>)
                                     : typeof(ClassStructuralEqualityERComparer<>);
             var ct = gct.MakeGenericType(t);
         #if LOW_TRUST

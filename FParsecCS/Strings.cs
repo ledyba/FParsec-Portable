@@ -5,20 +5,22 @@ using System;
 
 namespace FParsec {
 
-internal static class Strings {
+public static class Strings {
 
-    static internal string Quote(string stringToQuote) {
+    public static string Quote(string stringToQuote) {
         return Text.SingleQuote(stringToQuote);
     }
-    static internal string Quote(string prefix, string stringToQuote, string postfix) {
+    public static string Quote(string prefix, string stringToQuote, string postfix)
+    {
         return Text.SingleQuote(prefix, stringToQuote, postfix);
     }
 
-    static internal string AsciiQuote(string prefix, string stringToQuote, string postfix) {
+    public static string AsciiQuote(string prefix, string stringToQuote, string postfix)
+    {
         return Text.AsciiEscape(stringToQuote, prefix, "'", "'", postfix, '\'');
     }
 
-    static internal string QuoteCaseInsensitive(string caseInsensitiveStringToQuote) {
+    public static string QuoteCaseInsensitive(string caseInsensitiveStringToQuote) {
         return Quote("", caseInsensitiveStringToQuote, " (case-insensitive)");
     }
 

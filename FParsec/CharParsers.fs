@@ -80,16 +80,6 @@ let runParserOnStream (parser: Parser<'Result,'UserState>) (ustate: 'UserState) 
     stream.Name <- streamName
     applyParser parser stream
 
-let runParserOnFile (parser: Parser<'Result,'UserState>) (ustate: 'UserState) (path: string) (encoding: System.Text.Encoding) =
-#if LOW_TRUST
-    let
-#else
-    use
-#endif
-        stream = new CharStream<'UserState>(path, encoding)
-    stream.UserState <- ustate
-    applyParser parser stream
-
 let run parser (string: string) =
     runParserOnString parser () "" string
 
@@ -247,10 +237,7 @@ let skipSatisfy f        = skipSatisfyE f NoErrorMessages
 let skipSatisfyL f label = skipSatisfyE f (expected label)
 
 
-let private charsToString (chars: seq<char>) =
-    match chars with
-    | :? string as str -> str
-    | _ -> new string(Array.ofSeq chars)
+let private charsToString (chars: seq<char>) = new string(Array.ofSeq chars)
 
 let isAnyOf (chars: seq<char>) =
 #if LOW_TRUST
@@ -280,19 +267,19 @@ let isNoneOf (chars: seq<char>) =
 
 let anyOf (chars: seq<char>) =
     let str = charsToString chars
-    satisfyE (isAnyOf str) (Errors.ExpectedAnyCharIn(str))
+    satisfyE (isAnyOf chars) (Errors.ExpectedAnyCharIn(str))
 
 let skipAnyOf (chars: seq<char>) =
     let str = charsToString chars
-    skipSatisfyE (isAnyOf str) (Errors.ExpectedAnyCharIn(str))
+    skipSatisfyE (isAnyOf chars) (Errors.ExpectedAnyCharIn(str))
 
 let noneOf (chars: seq<char>) =
     let str = charsToString chars
-    satisfyE (isNoneOf str) (Errors.ExpectedAnyCharNotIn(str))
+    satisfyE (isNoneOf chars) (Errors.ExpectedAnyCharNotIn(str))
 
 let skipNoneOf (chars: seq<char>) =
     let str = charsToString chars
-    skipSatisfyE (isNoneOf str) (Errors.ExpectedAnyCharNotIn(str))
+    skipSatisfyE (isNoneOf chars) (Errors.ExpectedAnyCharNotIn(str))
 
 let inline isAsciiUpper (c: char) =
     uint32 c - uint32 'A' <= uint32 'Z' - uint32 'A'

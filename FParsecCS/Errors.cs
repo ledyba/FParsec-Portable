@@ -5,7 +5,7 @@ using System;
 
 namespace FParsec {
 
-internal static class Errors {
+public static class Errors {
     static private ErrorMessageList Expected(string str) {
         return new ErrorMessageList(new ErrorMessage.Expected(str));
     }

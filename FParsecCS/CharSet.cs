@@ -9,7 +9,7 @@ namespace FParsec {
 #if !LOW_TRUST
     unsafe
 #endif
-internal sealed class CharSet {
+public sealed class CharSet {
     private const int WordSize = 32;
     private const int Log2WordSize = 5;
 

@@ -16,7 +16,7 @@ internal unsafe struct _16CharBuffer {
 }
 #endif
 
-internal class Many1Chars<TUserState> : FSharpFunc<CharStream<TUserState>, Reply<string>> {
+public class Many1Chars<TUserState> : FSharpFunc<CharStream<TUserState>, Reply<string>> {
     protected FSharpFunc<CharStream<TUserState>, Reply<char>> CharParser1;
     protected FSharpFunc<CharStream<TUserState>, Reply<char>> CharParser;
 
@@ -101,7 +101,7 @@ internal class Many1Chars<TUserState> : FSharpFunc<CharStream<TUserState>, Reply
 }
 
 
-internal class ManyChars<TUserState> : Many1Chars<TUserState> {
+public class ManyChars<TUserState> : Many1Chars<TUserState> {
     public ManyChars(FSharpFunc<CharStream<TUserState>, Reply<char>> charParser1,
                      FSharpFunc<CharStream<TUserState>, Reply<char>> charParser)
            : base(charParser1, charParser) { }
@@ -118,7 +118,7 @@ internal class ManyChars<TUserState> : Many1Chars<TUserState> {
     }
 }
 
-internal class Many1CharsTill<TUserState, TEnd, TResult> : FSharpFunc<CharStream<TUserState>, Reply<TResult>> {
+public class Many1CharsTill<TUserState, TEnd, TResult> : FSharpFunc<CharStream<TUserState>, Reply<TResult>> {
     protected FSharpFunc<CharStream<TUserState>, Reply<char>> CharParser1;
     protected FSharpFunc<CharStream<TUserState>, Reply<char>> CharParser;
     protected FSharpFunc<CharStream<TUserState>, Reply<TEnd>> EndParser;
@@ -221,7 +221,7 @@ internal class Many1CharsTill<TUserState, TEnd, TResult> : FSharpFunc<CharStream
     public FSharpFunc<CharStream<TUserState>, Reply<TResult>> AsFSharpFunc { get { return this; } }
 }
 
-internal class ManyCharsTill<TUserState, TEnd, TResult> : Many1CharsTill<TUserState, TEnd, TResult> {
+public class ManyCharsTill<TUserState, TEnd, TResult> : Many1CharsTill<TUserState, TEnd, TResult> {
     public ManyCharsTill(FSharpFunc<CharStream<TUserState>, Reply<char>> charParser1,
                          FSharpFunc<CharStream<TUserState>, Reply<char>> charParser,
                          FSharpFunc<CharStream<TUserState>, Reply<TEnd>> endParser,
